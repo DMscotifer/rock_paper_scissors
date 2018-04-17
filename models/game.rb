@@ -1,11 +1,6 @@
 class Game
-  attr_accessor :player1, :player2
-  def initialize(player1, player2)
-    @player1 = player1
-    @player2 = player2
-  end
-
-  def decide_match()
+  
+  def self.decide_match(player1, player2)
     if player1 == "rock" && player2 == "scissors" || player2 == "rock" && player1 == "scissors"
       return "Rock wins"
     elsif player1 == "paper" && player2 == "rock" || player2 == "paper" && player1 == "rock"

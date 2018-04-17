@@ -1,10 +1,10 @@
-require("sinatra")
-require("sinatra/contrib.rb") if development?
-require("./models/rock_paper_scissors.rb")
-
+require "sinatra"
+require "sinatra/contrib/all" if development?
+also_reload("./models/*")
+require_relative "./models/game.rb"
 
 get "/game/:player1/:player2" do
-  @round = Game.decide_match(params[:player1], params[:player2])
+  @result = Game.decide_match(params[:player1], params[:player2])
   erb(:result)
 end
 
